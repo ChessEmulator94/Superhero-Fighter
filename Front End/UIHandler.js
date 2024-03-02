@@ -6,9 +6,7 @@ const updateBtn = document.querySelector("#updateBtn");
 // Retrieves all heroes and their data from the HeroDB database
 viewBtn.addEventListener("click", () => {
   // Function declaration in UserInterfaceAPIs.js
-  viewAllHeroes().then((allHeroes) => {
-    console.log(allHeroes);
-  });
+  window.location.href = "ViewHeroes.html";
 });
 
 // Add a hero to the HeroDB database

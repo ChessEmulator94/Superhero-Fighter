@@ -1,0 +1,96 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+.profile-picture-div img {
+  width: 200px;
+  height: auto;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.hero-details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.label {
+  font-weight: bold;
+  text-align: right;
+  padding: 10px;
+  background-color: #3498db;
+  color: #fff;
+  border-radius: 5px 0 0 5px;
+}
+
+.value {
+  padding: 10px;
+  background-color: #ecf0f1;
+  border-radius: 0 5px 5px 0;
+}
+
+.buttons {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.buttons button {
+  padding: 15px 30px;
+  font-size: 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.back-button {
+  background-color: #2ecc71;
+  color: #fff;
+}
+
+.next-button {
+  background-color: #2ecc71;
+  color: #fff;
+}
+
+.buttons button:hover {
+  background-color: #34495e;
+}
+
+.home-button-container {
+  position: fixed;
+
+  left: 0;
+  width: 100%;
+  background-color: #f0f0f0;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.home-button {
+  text-decoration: none;
+  color: #333;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.home-button:hover {
+  background-color: #ddd;
+}

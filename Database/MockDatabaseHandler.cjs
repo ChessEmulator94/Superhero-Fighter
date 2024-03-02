@@ -18,14 +18,14 @@ const appendDatabase = (data, dbName = "defaultDB.json") => {
     return console.log("Provide data to write");
   }
   // Reading items from the file system
-  const jsonData = fs.readFileSync(dbName)
-  const dbItems = JSON.parse(jsonData)
+  const jsonData = fs.readFileSync(dbName);
+  const dbItems = JSON.parse(jsonData);
 
   // Add new item to the item list
-  dbItems.push(data)
+  dbItems.push(data);
 
-  const newJsonString = JSON.stringify(dbItems)
-  writeDatabase(dbItems,dbName);
+  const newJsonString = JSON.stringify(dbItems);
+  writeDatabase(dbItems, dbName);
 };
 
 // Write data to a new db
@@ -42,4 +42,3 @@ const writeDatabase = (data, dbName = "defaultDB.json") => {
 };
 
 module.exports = { writeDatabase, readDatabase, appendDatabase };
-
