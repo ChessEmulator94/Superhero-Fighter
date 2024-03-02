@@ -16,10 +16,10 @@ import {
   writeDatabase,
   readDatabase,
   appendDatabase,
+  deleteItem,
 } from "./../Database/MockDatabaseHandler.cjs";
 
 import getHeroData from "./../REST Logic/HeroApiHandler.js";
-// console.log(await getHeroData(7))
 
 // Process GET request from http://localhost:${PORT}/viewheroes
 app.get("/viewheroes", (req, res) => {
@@ -29,19 +29,22 @@ app.get("/viewheroes", (req, res) => {
 });
 
 // Process POST request from http://localhost:${PORT}/addhero
-app.post("/addhero/:heroID", (req, res) => {
+app.post("/:heroID", (req, res) => {
   let heroID = req.params.heroID;
 
   getHeroData(heroID)
     .then((postData) => {
       //console.log(postData);
       appendDatabase(postData, "./../Database/HeroDB.json");
-      console.log("Post processed!");
     })
     .catch((error) => {
       console.error("Error:", error);
-      // Handle errors here
     });
+});
+
+app.delete("/:heroID", (req, res) => {
+  let heroID = req.params.heroID;
+  deleteItem(heroID, "./../Database/HeroDB.json");
 });
 
 app.listen(PORT, () => {

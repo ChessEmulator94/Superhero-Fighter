@@ -14,18 +14,14 @@ const viewAllHeroes = () => {
 };
 
 // Query the node.js server @queryURL with a POST
-// Functionality @ app.use("/addhero" ...) in index.js
-async function addHero() {
-  let heroID = 3;
-  let queryURL = `${SERVER_URL}/addhero/${heroID}`;
-  let urlBody = JSON.stringify({ name: "Sherlock Gnomes", age: "222" });
-
+// Functionality @ app.use() in index.js
+async function addHero(heroID = 1) {
+  let queryURL = `${SERVER_URL}/${heroID}`;
   fetch(queryURL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: urlBody,
   })
     .then((response) => response.text)
     .then((text) => {
@@ -34,10 +30,19 @@ async function addHero() {
 }
 
 // Query the node.js server @queryURL with a DELETE
-const deleteHero = () => {
-  // Function
-  let responseMsg = "Hero Deleted Successfully";
-  return responseMsg;
+// Functionality @ app.delete() in index.js
+const deleteHero = async (heroID) => {
+  try {
+    let queryURL = `${SERVER_URL}/${heroID}`;
+    const response = await fetch(queryURL, {
+      method: "DELETE",
+    });
+    if (!response.ok) {
+      throw new Error("Failed to delete hero");
+    }
+  } catch (error) {
+    console.error("Error deleting hero:", error);
+  }
 };
 
 const updateHero = () => {

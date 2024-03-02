@@ -12,17 +12,24 @@ viewBtn.addEventListener("click", () => {
 // Add a hero to the HeroDB database
 addBtn.addEventListener("click", () => {
   // Function declaration in UserInterfaceAPIs.js
-  addHero();
+  popupWindow("Add", addHero);
 });
 
 // Delete a hero from the HeroDB database
 delBtn.addEventListener("click", () => {
-  console.log(deleteHero());
-  // window.location.href = "index.html";
+  popupWindow("Delete", deleteHero);
 });
 
 // Update an entry in the HeroDB database
 updateBtn.addEventListener("click", () => {
-  console.log(updateHero());
-  // window.location.href = "index.html";
+  popupWindow("Update", updateHero);
 });
+
+// Pop up window to get the id of the hero for the update, delete or add
+const popupWindow = (action, callbackFunction) => {
+  let heroID = prompt(`Enter ID for the hero you wish to ${action}:`);
+  if (heroID !== null && heroID !== "") {
+    callbackFunction(heroID);
+    alert(`${action} request was processed`);
+  }
+};

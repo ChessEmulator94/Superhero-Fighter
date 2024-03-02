@@ -41,4 +41,23 @@ const writeDatabase = (data, dbName = "defaultDB.json") => {
   }
 };
 
-module.exports = { writeDatabase, readDatabase, appendDatabase };
+// Delete an item from the database
+const deleteItem = (identifier, dbName = "defaultDB.json") => {
+  // Read existing data from the database
+  const jsonData = fs.readFileSync(dbName);
+  const dbItems = JSON.parse(jsonData);
+
+  // Find the index of the item with the given identifier
+  const index = dbItems.findIndex((item) => item.id === identifier);
+
+  // If the item is found, remove it from the array
+  if (index !== -1) {
+    dbItems.splice(index, 1);
+    writeDatabase(dbItems, dbName);
+    console.log("Item deleted successfully");
+  } else {
+    console.log("Item not found");
+  }
+};
+
+module.exports = { writeDatabase, readDatabase, appendDatabase, deleteItem };
