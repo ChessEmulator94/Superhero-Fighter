@@ -8,10 +8,10 @@ const PORT = 5500;
 app.use(bodyParser.json());
 app.use(express.json());
 
-// Enables CORS for ALL routes
+// Enables CORS for ALL routes (not safe)
 app.use(cors());
 
-// Import db handlers
+// Import DB handlers
 import {
   writeDatabase,
   readDatabase,
@@ -19,22 +19,20 @@ import {
   deleteItem,
 } from "./../Database/MockDatabaseHandler.cjs";
 
+// Import function to get data from superheroapi.com
 import getHeroData from "./../REST Logic/HeroApiHandler.js";
 
 // Process GET request from http://localhost:${PORT}/viewheroes
 app.get("/viewheroes", (req, res) => {
   let fullData = readDatabase("./../Database/HeroDB.json");
-  //console.log(fullData);
   res.send(fullData);
 });
 
-// Process POST request from http://localhost:${PORT}/addhero
+// Process POST request from http://localhost:${PORT}/
 app.post("/:heroID", (req, res) => {
   let heroID = req.params.heroID;
-
   getHeroData(heroID)
     .then((postData) => {
-      //console.log(postData);
       appendDatabase(postData, "./../Database/HeroDB.json");
     })
     .catch((error) => {
@@ -42,11 +40,13 @@ app.post("/:heroID", (req, res) => {
     });
 });
 
+// Process DELETE request from http://localhost:${PORT}/
 app.delete("/:heroID", (req, res) => {
   let heroID = req.params.heroID;
   deleteItem(heroID, "./../Database/HeroDB.json");
 });
 
+// Start the server
 app.listen(PORT, () => {
   console.log(`Server running on port: http://localhost:${PORT}`);
 });

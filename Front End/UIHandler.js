@@ -1,3 +1,9 @@
+/*
+ * Provides the script for `manage.html`
+ * Exclusively handles the UI and events from UI actions
+ */
+
+// Get button references from the DOM
 const viewBtn = document.querySelector("#viewBtn");
 const addBtn = document.querySelector("#addBtn");
 const delBtn = document.querySelector("#delBtn");
@@ -17,11 +23,13 @@ addBtn.addEventListener("click", () => {
 
 // Delete a hero from the HeroDB database
 delBtn.addEventListener("click", () => {
+  // deleteHero() decleration in UserInterfaceAPIs.js
   popupWindow("Delete", deleteHero);
 });
 
 // Update an entry in the HeroDB database
 updateBtn.addEventListener("click", () => {
+  // updateHero() decleration in UserInterfaceAPIs.js
   popupWindow("Update", updateHero);
 });
 
@@ -29,6 +37,7 @@ updateBtn.addEventListener("click", () => {
 const popupWindow = (action, callbackFunction) => {
   let heroID = prompt(`Enter ID for the hero you wish to ${action}:`);
   if (heroID !== null && heroID !== "") {
+    // Call the function passed
     callbackFunction(heroID);
     alert(`${action} request was processed`);
   }

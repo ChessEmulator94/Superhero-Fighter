@@ -1,20 +1,25 @@
-// Set equal to the URL server is running on
+/*
+ * Acts as an intermediary between the UI and the server
+ *
+ * Functions defined in this class are called in UIHandler.js, and
+ * make various queries to the server as defined in ./../REST Logic/index.json
+ *
+ */
+
+// Set equal to the URL server is running on (get from ./../REST Logic/index.json)
 const SERVER_URL = `http://localhost:5500`;
 
-// Query the node.js server @queryURL with a GET
-// Functionality @ app.get("/viewheroes" ...) in index.js
+// Query the server @queryURL with a GET
 const viewAllHeroes = () => {
   let queryURL = `${SERVER_URL}/viewheroes`;
   return fetch(queryURL, {})
     .then((response) => response.text())
     .then((text) => {
-      //console.log(JSON.stringify(text));
       return text;
     });
 };
 
-// Query the node.js server @queryURL with a POST
-// Functionality @ app.use() in index.js
+// Query the server @queryURL with a POST
 async function addHero(heroID = 1) {
   let queryURL = `${SERVER_URL}/${heroID}`;
   fetch(queryURL, {
@@ -29,8 +34,7 @@ async function addHero(heroID = 1) {
     });
 }
 
-// Query the node.js server @queryURL with a DELETE
-// Functionality @ app.delete() in index.js
+// Query the server @queryURL with a DELETE
 const deleteHero = async (heroID) => {
   try {
     let queryURL = `${SERVER_URL}/${heroID}`;

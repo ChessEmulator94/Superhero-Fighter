@@ -1,3 +1,9 @@
+/*
+ * Script for ViewHeros.html
+ *
+ */
+
+// Get elements from the DOM
 const idValue = document.querySelector(".value.id");
 const nameValue = document.querySelector(".value.name");
 const intelligenceValue = document.querySelector(".value.intelligence");
@@ -7,38 +13,53 @@ const durabilityValue = document.querySelector(".value.durability");
 const powerValue = document.querySelector(".value.power");
 const combatValue = document.querySelector(".value.combat");
 const heroImage = document.querySelector(".profile-picture");
-
 const backBtn = document.querySelector(".back-button");
 const nextBtn = document.querySelector(".next-button");
 
 // Current hero in the heroDataArray array being displayed
 let currentIndex = 0;
-// Last hero in the heroDataArray array
+// Last possible index in the heroDataArray array
 let maxIndex = 0;
-// Contains all hero jsons
+// To hold all hero jsons
 let heroDataArray;
 
 // On window load, creates array of all heros and updates current display
 document.addEventListener("DOMContentLoaded", function () {
   viewAllHeroes().then((allHeroes) => {
+    // Populate array with hero jsons
     heroDataArray = jsonifyString(allHeroes);
+    // Set max possible index = lenght of array
     maxIndex = heroDataArray.length;
+    // Update currently displayed hero
     updateDisplayedHero(0);
   });
 });
 
+// View next hero
 nextBtn.addEventListener("click", () => {
   updateDisplayedHero(1);
 });
 
+// View previous hero
 backBtn.addEventListener("click", () => {
   updateDisplayedHero(-1);
 });
 
-const updateDisplayedHero = (direction) => {
+/*
+ * Update the DOM to display information about
+ * the hero at heroDataArray[currentIndex]
+ *
+ * direction determine whether the hero displayed will be:
+ * (direction == 0): heroDataArray[currentIndex]
+ * (direction == -1): heroDataArray[currentIndex - 1]
+ * (direction == 1): heroDataArray[currentIndex + 1]
+ */
+const updateDisplayedHero = (direction = 0) => {
+  // Determine which hero information to display
   adjustIndex(direction);
+  // Get current hero data from array
   let currentHero = heroDataArray[currentIndex];
-
+  // Update the DOM
   idValue.textContent = currentHero.id;
   nameValue.textContent = currentHero.name;
   intelligenceValue.textContent = currentHero.powerstats.intelligence;
@@ -69,7 +90,7 @@ const adjustIndex = (direction) => {
   }
 };
 
-// Turns an array in string form into an actual array
+// Turns an array in string form (plain text), into an actual array
 const jsonifyString = (arrayAsString) => {
   arrayAsString = arrayAsString.replace("[", "").replace("]", "");
   let actualArray = JSON.parse("[" + arrayAsString + "]");

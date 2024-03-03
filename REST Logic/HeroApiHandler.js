@@ -1,4 +1,6 @@
-/* View possible Superhero IDs @ https://superheroapi.com/ids.html */
+/*
+ * View possible Superhero IDs @ https://superheroapi.com/ids.html
+ */
 
 // Set to your access token from superheroapi.com
 const ACCESS_TOKEN = 7150306591723520;
@@ -8,7 +10,6 @@ const BASE_URL = `https://superheroapi.com/api/` + ACCESS_TOKEN;
 // Gets Superhero data based on provided ID
 function getHeroData(targetHeroID) {
   let fetchURL = `${BASE_URL}/${targetHeroID}`;
-
   return fetch(fetchURL)
     .then((response) => response.json())
     .then((heroData) => {
@@ -18,7 +19,6 @@ function getHeroData(targetHeroID) {
         powerstats: heroData.powerstats,
         image: heroData.image,
       };
-
       return summaryJSON;
     })
     .catch((error) => {
@@ -27,11 +27,10 @@ function getHeroData(targetHeroID) {
     });
 }
 
+// Function used for testing
 async function main() {
   let tempData = await getHeroData(5);
   console.log(tempData);
 }
-
-//main();
 
 export default getHeroData;

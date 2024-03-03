@@ -60,4 +60,5 @@ const deleteItem = (identifier, dbName = "defaultDB.json") => {
   }
 };
 
+// Export DB functions
 module.exports = { writeDatabase, readDatabase, appendDatabase, deleteItem };

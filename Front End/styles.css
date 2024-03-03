@@ -1,4 +1,6 @@
-/* styles.css */
+/* 
+ * Contains CSS for used by `index.html` and `manage.html` 
+ */
 
 /* Reset default margin and padding */
 html,
@@ -10,18 +12,17 @@ body {
 /* Center the title horizontally and vertically */
 .title {
   position: absolute;
-  font-size: 3em; /* Adjust as needed */
-
+  font-size: 3em;
   top: 25%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-family: "Roboto", sans-serif; /* Change 'Roboto' to your desired futuristic font */
+  font-family: "Roboto", sans-serif;
 }
 
 /* Center the buttons horizontally and vertically */
 .buttons {
   position: absolute;
-  top: 60%; /* Adjust the top position as needed */
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -33,8 +34,8 @@ body {
 
 /* Make the buttons larger and add space between them */
 .buttons button {
-  font-size: 3.5em; /* Adjust as needed */
-  margin-bottom: 20px; /* Adjust as needed */
+  font-size: 3.5em;
+  margin-bottom: 20px;
   width: 100%;
 }
 
