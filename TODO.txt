@@ -1,0 +1,5 @@
+- Finish Update at the initial function call, to dynamically take user specified data
+
+- Create a Dockerfile for the application (server specifically)
+
+- Add the fight hero functionality
