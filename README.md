@@ -12,13 +12,11 @@ The application consists of three main components:
 
 ## Directory Structure
 
-Superhero-Management-System
-│
-├── Database
+Superhero-Management-System/
+├── Database/
 │ ├── HeroDB.json
 │ └── MockDatabaseHandler.cjs
-│
-├── Front End
+├── Front End/
 │ ├── app.js
 │ ├── formStyles.css
 │ ├── index.html
@@ -28,8 +26,7 @@ Superhero-Management-System
 │ ├── UserInterfaceAPIs.js
 │ ├── ViewHeroes.html
 │ └── ViewHeroesLogic.js
-│
-└── REST Logic
+└── REST Logic/
 ├── HeroApiHandler.js
 └── index.js
 
