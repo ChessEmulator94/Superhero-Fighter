@@ -11,7 +11,6 @@ The application consists of three main components:
 3. **REST Logic:** Contains server-side JavaScript files responsible for hosting a server, handling API requests and interacting with the database.
 
 ## Directory Structure
-<pre>
 
 Superhero-Management-System/
 ├── Database/
@@ -30,7 +29,6 @@ Superhero-Management-System/
 └── REST Logic/
 ├── HeroApiHandler.js
 └── index.js
-</pre>
 
 ## Database
 
