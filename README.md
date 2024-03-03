@@ -20,7 +20,7 @@ Superhero-Management-System
 │   └── MockDatabaseHandler.cjs
 │
 ├── Front End
-│   ├── Index
+│   └── Index
 │       └── Manage Heroes
 │           ├── manage.html
 │           ├── styles.css
