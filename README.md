@@ -12,11 +12,14 @@ The application consists of three main components:
 
 ## Directory Structure
 
-Superhero-Management-System/
-├── Database/
+<pre>
+Superhero-Management-System
+│
+├── Database
 │ ├── HeroDB.json
 │ └── MockDatabaseHandler.cjs
-├── Front End/
+│
+├── Front End
 │ ├── app.js
 │ ├── formStyles.css
 │ ├── index.html
@@ -26,9 +29,11 @@ Superhero-Management-System/
 │ ├── UserInterfaceAPIs.js
 │ ├── ViewHeroes.html
 │ └── ViewHeroesLogic.js
-└── REST Logic/
+│
+└── REST Logic
 ├── HeroApiHandler.js
 └── index.js
+</pre>
 
 ## Database
 
@@ -67,5 +72,3 @@ To run the Superhero Management System:
 3. Install dependencies by running `npm install`.
 4. Start the server by running `npm start`.
 5. Open your web browser and go to `http://localhost:5500` to access the application.
-
-Enjoy managing superheroes and simulating epic fights with the Superhero Management System!
