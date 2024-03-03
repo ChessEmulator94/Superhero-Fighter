@@ -16,23 +16,25 @@ The application consists of three main components:
 Superhero-Management-System
 │
 ├── Database
-│ ├── HeroDB.json
-│ └── MockDatabaseHandler.cjs
+│   ├── HeroDB.json
+│   └── MockDatabaseHandler.cjs
 │
 ├── Front End
-│ ├── app.js
-│ ├── formStyles.css
-│ ├── index.html
-│ ├── manage.html
-│ ├── styles.css
-│ ├── UIHandler.js
-│ ├── UserInterfaceAPIs.js
-│ ├── ViewHeroes.html
-│ └── ViewHeroesLogic.js
+│   ├── Index
+│       └── Manage Heroes
+│           ├── manage.html
+│           ├── styles.css
+│           ├── UIHandler.js
+│           ├── UserInterfaceAPIs.js
+│           └── View Heroes
+│               ├── formStyles.css
+│               ├── ViewHeroes.html
+│               └── ViewHeroesLogic.js
 │
 └── REST Logic
-├── HeroApiHandler.js
-└── index.js
+    ├── HeroApiHandler.js
+    └── index.js
+
 </pre>
 
 ## Database
