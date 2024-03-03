@@ -60,5 +60,31 @@ const deleteItem = (identifier, dbName = "defaultDB.json") => {
   }
 };
 
+// Update an item in the database
+const updateItem = (identifier, updates, dbName = "defaultDB.json") => {
+  // Read existing data from the database
+  const jsonData = fs.readFileSync(dbName);
+  const dbItems = JSON.parse(jsonData);
+
+  // Find the index of the item with the given identifier
+  const index = dbItems.findIndex((item) => item.id === identifier);
+
+  // If the item is found, update its properties with the provided updates
+  if (index !== -1) {
+    const updatedItem = { ...dbItems[index], ...updates };
+    dbItems[index] = updatedItem;
+    writeDatabase(dbItems, dbName);
+    console.log("Item updated successfully");
+  } else {
+    console.log("Item not found");
+  }
+};
+
 // Export DB functions
-module.exports = { writeDatabase, readDatabase, appendDatabase, deleteItem };
+module.exports = {
+  writeDatabase,
+  readDatabase,
+  appendDatabase,
+  deleteItem,
+  updateItem,
+};

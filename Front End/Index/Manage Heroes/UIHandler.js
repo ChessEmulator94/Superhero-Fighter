@@ -12,7 +12,7 @@ const updateBtn = document.querySelector("#updateBtn");
 // Retrieves all heroes and their data from the HeroDB database
 viewBtn.addEventListener("click", () => {
   // Function declaration in UserInterfaceAPIs.js
-  window.location.href = "ViewHeroes.html";
+  window.location.href = "./View Heroes/ViewHeroes.html";
 });
 
 // Add a hero to the HeroDB database
@@ -30,7 +30,9 @@ delBtn.addEventListener("click", () => {
 // Update an entry in the HeroDB database
 updateBtn.addEventListener("click", () => {
   // updateHero() decleration in UserInterfaceAPIs.js
-  popupWindow("Update", updateHero);
+
+  // TODO: Add logic to handle this call dynamically
+  updateHero(1, "name:Gadi");
 });
 
 // Pop up window to get the id of the hero for the update, delete or add

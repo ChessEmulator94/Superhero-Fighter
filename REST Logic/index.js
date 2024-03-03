@@ -1,5 +1,5 @@
 import bodyParser from "body-parser";
-import express from "express";
+import express, { json } from "express";
 import cors from "cors";
 
 const app = express();
@@ -17,6 +17,7 @@ import {
   readDatabase,
   appendDatabase,
   deleteItem,
+  updateItem,
 } from "./../Database/MockDatabaseHandler.cjs";
 
 // Import function to get data from superheroapi.com
@@ -29,7 +30,7 @@ app.get("/viewheroes", (req, res) => {
 });
 
 // Process POST request from http://localhost:${PORT}/
-app.post("/:heroID", (req, res) => {
+app.post("/heroes/:heroID", (req, res) => {
   let heroID = req.params.heroID;
   getHeroData(heroID)
     .then((postData) => {
@@ -41,9 +42,17 @@ app.post("/:heroID", (req, res) => {
 });
 
 // Process DELETE request from http://localhost:${PORT}/
-app.delete("/:heroID", (req, res) => {
+app.delete("/heroes/:heroID", (req, res) => {
   let heroID = req.params.heroID;
   deleteItem(heroID, "./../Database/HeroDB.json");
+});
+
+app.patch("/heroes/:heroID", (req, res) => {
+  let heroID = req.params.heroID;
+  let jsonBody = req.body;
+  console.log(jsonBody);
+  //res.send(console.log("Handled"));
+  updateItem(heroID, jsonBody, "./../Database/HeroDB.json");
 });
 
 // Start the server

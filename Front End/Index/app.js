@@ -13,5 +13,5 @@ fightBtn.addEventListener("click", () => {
 
 // Change window to `manage.html`
 manageHeroBtn.addEventListener("click", () => {
-  window.location.href = "manage.html";
+  window.location.href = "./Manage Heroes/manage.html";
 });

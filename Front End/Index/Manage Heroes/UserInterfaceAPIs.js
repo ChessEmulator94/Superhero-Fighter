@@ -21,7 +21,7 @@ const viewAllHeroes = () => {
 
 // Query the server @queryURL with a POST
 async function addHero(heroID = 1) {
-  let queryURL = `${SERVER_URL}/${heroID}`;
+  let queryURL = `${SERVER_URL}/heroes/${heroID}`;
   fetch(queryURL, {
     method: "POST",
     headers: {
@@ -37,7 +37,7 @@ async function addHero(heroID = 1) {
 // Query the server @queryURL with a DELETE
 const deleteHero = async (heroID) => {
   try {
-    let queryURL = `${SERVER_URL}/${heroID}`;
+    let queryURL = `${SERVER_URL}/heroes/${heroID}`;
     const response = await fetch(queryURL, {
       method: "DELETE",
     });
@@ -49,8 +49,29 @@ const deleteHero = async (heroID) => {
   }
 };
 
-const updateHero = () => {
-  // Function
-  let responseMsg = "Hero Updated Successfully";
-  return responseMsg;
+// Update the hero with new data
+const updateHero = async (heroID, newData) => {
+  try {
+    console.log(newData);
+
+    // TODO: change the way newData is passed to JSON, remove next line
+    newData = JSON.parse('{"' + newData.replace(/:/, '":"') + '"}');
+    console.log(newData);
+
+    let queryURL = `${SERVER_URL}/heroes/${heroID}`;
+    const response = await fetch(queryURL, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+
+      // TODO: after newData is JSON, remove JSON.stringify
+      body: JSON.stringify(newData), //'{"name":"Gadi"}',
+    });
+    if (!response.ok) {
+      throw new Error("Failed to update hero");
+    }
+  } catch (error) {
+    console.error("Error updating hero:", error);
+  }
 };

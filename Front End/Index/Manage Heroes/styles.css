@@ -1,0 +1,56 @@
+/* 
+ * Contains CSS for used by `index.html` and `manage.html` 
+ */
+
+/* Reset default margin and padding */
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Center the title horizontally and vertically */
+.title {
+  position: absolute;
+  font-size: 3em;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Roboto", sans-serif;
+}
+
+/* Center the buttons horizontally and vertically */
+.buttons {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s ease; /* Animation for the button press effect */
+}
+
+/* Make the buttons larger and add space between them */
+.buttons button {
+  font-size: 3.5em;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+/* Animation for the button press effect */
+.buttons button:active {
+  transform: scale(0.98);
+}
+
+/* Responsive design to scale elements based on window size */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2em; /* Adjust as needed */
+  }
+
+  .buttons button {
+    font-size: 2em; /* Adjust as needed */
+  }
+}
